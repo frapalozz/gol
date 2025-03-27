@@ -39,8 +39,14 @@ public interface Cell {
     Status getStatus();
 
     /**
+     * Return if the cell is alive.
+     * @return true if the cell is alive, false otherwise
+     */
+    boolean isAlive();
+
+    /**
      * Set the status of the cell.
-     * @param status
+     * @param status Status of the cell
      */
     void setStatus(Status status);
 
@@ -63,9 +69,9 @@ public interface Cell {
 
     /**
      * Set the next status of the cell.
-     * @param status
+     * @param aliveNeighbours int representing the number of alive neighbours
      */
-    void setNextStatus(Status status);
+    void setNextStatus(int aliveNeighbours);
 
     /**
      * Step the cell to the next status.

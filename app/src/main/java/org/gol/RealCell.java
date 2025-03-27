@@ -47,6 +47,11 @@ public class RealCell implements Cell {
     }
 
     @Override
+    public boolean isAlive() {
+        return this.status == Status.ALIVE;
+    }
+
+    @Override
     public Status getStatus() {
         return this.status;
     }
@@ -85,8 +90,12 @@ public class RealCell implements Cell {
     }
 
     @Override
-    public void setNextStatus(Status stat) {
-        this.nextStatus = stat;
+    public void setNextStatus(int aliveNeighbours) {
+        switch (aliveNeighbours) {
+            case 2: this.nextStatus = this.status; break;
+            case 3: this.nextStatus = Status.ALIVE; break;
+            default: this.nextStatus = Status.DEAD; break;
+        }
     }
 
     @Override

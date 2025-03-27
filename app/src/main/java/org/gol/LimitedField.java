@@ -69,14 +69,8 @@ public class LimitedField implements Field {
     public void step() {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-
                 Cell cell = cells[i][j];
-                
-                switch (aliveNeighbours(cell)) {
-                    case 2: cell.setNextStatus(cell.getStatus()); break;
-                    case 3: cell.setNextStatus(Status.ALIVE); break;
-                    default: cell.setNextStatus(Status.DEAD); break;
-                }
+                cell.setNextStatus(aliveNeighbours(cell));
             }
         }
 
@@ -97,7 +91,7 @@ public class LimitedField implements Field {
         int aliveNeighbours = 0;
 
         for (Coordinate coordinate : neighbours) {
-            if(cells[coordinate.x()][coordinate.y()].getStatus() == Status.ALIVE) {
+            if(cells[coordinate.x()][coordinate.y()].isAlive()) {
                 aliveNeighbours++;
             }
         }
