@@ -27,6 +27,10 @@ package org.gol;
 public class App {
 
     public static void main(String[] args) {
+        new App().startApp();
+    }
+
+    public int startApp() {
         LimitedField field = new LimitedField(10);
         field.switchCellStatus(new Coordinate(3, 4));
         field.switchCellStatus(new Coordinate(3, 5));
@@ -49,5 +53,7 @@ public class App {
             }
         }
         field.showField();
+
+        return 0;
     }
 }
