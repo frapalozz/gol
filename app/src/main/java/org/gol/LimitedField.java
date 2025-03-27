@@ -73,17 +73,9 @@ public class LimitedField implements Field {
                 Cell cell = cells[i][j];
                 
                 switch (aliveNeighbours(cell)) {
-                    case 2:
-                        cell.setNextStatus(cell.getStatus());
-                        break;
-
-                    case 3:
-                        cell.setNextStatus(Status.ALIVE);
-                        break;
-                
-                    default:
-                        cell.setNextStatus(Status.DEAD);
-                        break;
+                    case 2: cell.setNextStatus(cell.getStatus()); break;
+                    case 3: cell.setNextStatus(Status.ALIVE); break;
+                    default: cell.setNextStatus(Status.DEAD); break;
                 }
             }
         }
