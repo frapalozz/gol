@@ -37,12 +37,13 @@ public class App {
         field.switchCellStatus(new Coordinate(5, 4));
         field.switchCellStatus(new Coordinate(5, 5));
         field.switchCellStatus(new Coordinate(5, 6));
-        for(int i = 0; i < 15; i++) {
+        field.switchCellStatus(new Coordinate(6, 6));
+        for(int i = 0; i < 35; i++) {
             
             field.showField();
             field.step();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

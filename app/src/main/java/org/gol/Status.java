@@ -45,6 +45,6 @@ public enum Status {
      */
     @Override
     public String toString() {
-        return this == DEAD ? "X" : "O";
+        return this == DEAD ? "." : "X";
     }
 }
