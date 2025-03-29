@@ -87,7 +87,7 @@ public class LimitedField implements Field {
      * @return the number of alive neighbours of the cell
      */
     private int aliveNeighbours(Cell cell) {
-        ArrayList<Coordinate> neighbours = cell.getNeighbours();
+        ArrayList<Coordinate> neighbours = cell.getNeighbours(cells.length);
         int aliveNeighbours = 0;
 
         for (Coordinate coordinate : neighbours) {

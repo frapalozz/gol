@@ -72,21 +72,8 @@ public class RealCell implements Cell {
     }
 
     @Override
-    public ArrayList<Coordinate> getNeighbours() {
-        ArrayList<Coordinate> neighbours = new ArrayList<>();
-        
-        for (int i = -1; i < 2; i++) {
-            for (int j = -1; j < 2; j++) {
-                if (i != 0 || j != 0) {
-                    if(this.coordinate.x() + i < 0 || this.coordinate.x() + i >= 10 || this.coordinate.y() + j < 0 || this.coordinate.y() + j >= 10) {
-                        continue;
-                    }
-                    neighbours.add(new Coordinate(this.coordinate.x() + i, this.coordinate.y() + j));
-                }
-            }
-        }
-
-        return neighbours;
+    public ArrayList<Coordinate> getNeighbours(int size) {
+        return this.coordinate.getNeighbours(size);
     }
 
     @Override

@@ -63,9 +63,11 @@ public interface Cell {
 
     /**
      * Return the neighbours of the cell.
+     * @param size the size of the field
+     *            (to avoid going out of bounds)
      * @return the neighbours of the cell
      */
-    ArrayList<Coordinate> getNeighbours();
+    ArrayList<Coordinate> getNeighbours(int size);
 
     /**
      * Set the next status of the cell.
