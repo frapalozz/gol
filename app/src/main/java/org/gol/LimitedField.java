@@ -37,7 +37,7 @@ public class LimitedField implements Field {
 
     /**
      * Constructor of the class.
-     * @param size
+     * @param size dimensione della griglia
      */
     LimitedField(int size) {
         cells = new Cell[size][size];
@@ -67,23 +67,23 @@ public class LimitedField implements Field {
 
     @Override
     public void step() {
-        for (int i = 0; i < cells.length; i++) {
+        for (Cell[] value : cells) {
             for (int j = 0; j < cells.length; j++) {
-                Cell cell = cells[i][j];
+                Cell cell = value[j];
                 cell.setNextStatus(aliveNeighbours(cell));
             }
         }
 
-        for (int i = 0; i < cells.length; i++) {
+        for (Cell[] cell : cells) {
             for (int j = 0; j < cells.length; j++) {
-                cells[i][j].step();
+                cell[j].step();
             }
         }
     }
 
     /**
      * Return the number of alive neighbours of the cell.
-     * @param cell
+     * @param cell Cella da cui controllare i vicini
      * @return the number of alive neighbours of the cell
      */
     private int aliveNeighbours(Cell cell) {
@@ -102,11 +102,11 @@ public class LimitedField implements Field {
 
     @Override
     public void showField() {
-        for(int i = 0; i < cells.length; i++) {
-            for(int j = 0; j < cells.length; j++) {
-                System.out.print(cells[i][j].getStatus().toString() + " | ");
+        for (Cell[] cell : cells) {
+            for (int j = 0; j < cells.length; j++) {
+                System.out.print(cell[j].getStatus().toString() + " | ");
             }
-            
+
             System.out.println();
         }
         System.out.println();
